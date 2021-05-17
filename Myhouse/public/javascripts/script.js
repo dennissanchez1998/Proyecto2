@@ -1,5 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
+console.log("agrro el js");
 
-  console.log('IronGenerator JS imported successfully!');
+document.querySelector('.button').onmousemove = function (e) {
 
-}, false);
+    var x = e.pageX - e.target.offsetLeft;
+    var y = e.pageY - e.target.offsetTop;
+
+	e.target.style.setProperty('--x', x + 'px');
+	e.target.style.setProperty('--y', y + 'px');
+	};
