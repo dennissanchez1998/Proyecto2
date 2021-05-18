@@ -1,19 +1,21 @@
-<div class="container mt-5"> <br> <br>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="background">
+    <div class="container w3-animate-opacity">
     <div class="row">
         <div class="col"><img src="https://i.imgur.com/87ZUO6G.png" width="450" height="450" class="Avatar"></div>
         <div class="col">
 
-            <form class="login100-form validate-form" method=post action=>
+            <form class="login100-form validate-form" action="/auth/login" method="POST">
                 <br> <br> <br>
                 <h3 align="center">INICIO DE SESIÓN</h3> <br>
-                <div class="container">
+                <div style="width: 90%;">
                     <i class="fa fa-users"></i>
-                    <label for="">Usuario</label>
-                    <input type="text" class="form-control" placeholder="Usuario">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" placeholder="Usuario" name="email">
                     <br>
                     <i class="fa fa-key"></i>
                     <label for="">Contraseña</label>
-                    <input type="password" class="form-control" placeholder="Contraseña">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password">
                 </div>
                 <br>
                 <div class="col">
@@ -29,4 +31,6 @@
 
     <br>
 </div>
+
 <br> <br> <br> <br>
+</div>
