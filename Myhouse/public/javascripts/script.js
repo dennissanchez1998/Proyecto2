@@ -1,10 +1,15 @@
 console.log("agrro el js");
 
-document.querySelector('.button').onmousemove = function (e) {
-
-    var x = e.pageX - e.target.offsetLeft;
-    var y = e.pageY - e.target.offsetTop;
-
-	e.target.style.setProperty('--x', x + 'px');
-	e.target.style.setProperty('--y', y + 'px');
+	wow = new WOW({
+		animateClass: 'animated',
+		offset: 100,
+		callback: function (box) {
+			console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+		}
+	});
+	wow.init();
+	document.getElementById('moar').onclick = function () {
+			var section = document.createElement('section');
+			section.className = 'section--purple wow fadeInDown';
+			this.parentNode.insertBefore(section, this);
 	};
