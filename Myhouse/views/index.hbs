@@ -1,2 +1,97 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+
+<div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel" style="z-index: -1; height: 90vh; ">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" style="height: 90vh; ">
+    <div class="carousel-item active">
+      <img src="/images/minimalist-dining-room-interior-and-stylish-kitche-L4YVG2R.jpg" class="d-block w-100" style="height: 90vh; " alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/hipster-studio-apartment-P28UGFW.jpg" class="d-block w-100"  style="height: 90vh; "alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/bike-in-stylish-apartment-PSMKQEU.jpg" class="d-block w-100" style="height: 90vh; " alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Info block 1 -->
+<section class="info-section">
+	<div >
+		<div class="head-box text-center mb-5" >
+			<h2>Por que usar MyHouse ?</h2>
+		
+		</div>
+		<div class="three-panel-block mt-5">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-6 cursor">
+					<div class="service-block-overlay text-center mb-5 p-lg-3">
+						<i class="fa fa-laptop box-circle-solid mt-3 mb-3" aria-hidden="true"></i>
+						<h3>Diseño Responsivo </h3>
+						<p class="px-4">Nuestra pagina se puede utilizar en cualquier plataforma para mayor comodidad</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 cursor">
+					<div class="service-block-overlay text-center mb-5 p-lg-3">
+						<i class="fa fa-calendar box-circle-solid mt-3 mb-3" aria-hidden="true"></i>
+						<h3>Fácil de ultilizar </h3>
+						<p class="px-4">Puedes conseguir la casa de tus sueños solo con un simple click</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 cursor">
+					<div class="service-block-overlay text-center mb-5 p-lg-3">
+						<i class="fas fa-handshake box-circle-solid mt-3 mb-3" aria-hidden="true"></i>
+						<h3>Totalmente Gratis</h3>
+						<p class="px-4">Nuestra plataforma es totalmente gratuita</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 cursor">
+					<div class="service-block-overlay text-center p-lg-3">
+						<i class="fa fa-bug box-circle-solid mt-3 mb-3" aria-hidden="true"></i>
+						<h3>Seguridad de Información</h3>
+						<p class="px-4">Nuestra plataforma garantiza la seguridad de todos sus Datos</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 cursor">
+					<div class="service-block-overlay text-center p-lg-3">
+						<i class="fas fa-users box-circle-solid mt-3 mb-3" aria-hidden="true"></i>
+						<h3>Calidad Premium</h3>
+						<p class="px-4">Los mejores recursos para hacer mas agradable su interacción </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 cursor">
+					<div class="service-block-overlay text-center p-lg-3">
+						<i class="fa fa-comments box-circle-solid mt-3 mb-3" aria-hidden="true"></i>
+						<h3>Soporte 24/7</h3>
+						<p class="px-4">Nuestros servidores se encuentran activos las 24 horas del dia, los 7 días a la semana</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+ <script>
+  $(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 50) {
+        $(".info-section").addClass("derechaindex");
+    } else {
+        $(".info-section").removeClass("derechaindex");
+    }
+});
+
+
+    </script>
