@@ -61,6 +61,10 @@ app.use('/', index);
 
 const auth = require('./routes/auth');
 app.use('/auth', auth);
+//Ruta de Rooms
+
+const rm = require('./routes/rooms');
+app.use('/', rm);
 
 
 module.exports = app;
