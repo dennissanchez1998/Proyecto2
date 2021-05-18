@@ -20,8 +20,8 @@ router.get('/rooms', (req, res, next) => {
  router.get("/room/:id", (req, res, next) => {
 /*  const user = req.session.currentUser
 if (!user) {
-return res.redirect("/login");*/
-}
+return res.redirect("/login");
+}*/
     const { id } = req.params;
     Room.findById(id)
       .then((DBbyId) => {
