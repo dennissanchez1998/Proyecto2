@@ -1,0 +1,244 @@
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script
+  src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+></script>
+<script
+  src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+></script>
+
+<div class="backgroundUser" style="z-index: -2;">
+
+  <div class="emp-profile mt-5">
+    <div
+      class="card color"
+      style="border-radius: 30px; z-index: 1; border: solid 1px; min-height: 70%; "
+    >
+    <form action="/user/edit" method="POST" enctype="multipart/form-data">
+      <div class="row mt-5">
+        <div class="col-md-4">
+          <div class="profile-img">
+            {{#if currentUser.img }}
+            <img src="{{currentUser.img}}" alt="" />
+         {{else}}
+            <img src="/images/image-not-found.png" alt="" />
+              {{/if}}
+            <div class="file btn btn-lg btn-primary" >
+              Change Photo
+              <input type="file" name="photo"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h4>
+              {{currentUser.username}}
+              {{currentUser.surname}}
+            </h4>
+            <br />
+            <h6 style="font-size: 18px;">
+              {{currentUser.email}}
+            </h6>
+            <br />
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                >Datos</a>
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="profile-tab"
+                  data-toggle="tab"
+                  href="#profile"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >Editar</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work">
+            <p style="font-size: 20px;">Publicaciones</p>
+            <a href="">Publicacion 1</a><br />
+            <a href="">publicacion 2</a><br />
+            <a href="">publicacion 3</a>
+
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+              style="margin-top: -40px;"
+            >
+
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Nombre</label>
+                </div>
+                <div class="col-md-6">
+                  <p> {{currentUser.username}} {{currentUser.surname}} </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Email</label>
+                </div>
+                <div class="col-md-6">
+                  <p> {{currentUser.email}} </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Teléfono</label>
+                </div>
+                <div class="col-md-6">
+                  <p> {{currentUser.telefono}} </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Dirección</label>
+                </div>
+                <div class="col-md-6">
+                  <p> {{currentUser.direccion}}</p>
+                </div>
+              </div>
+
+            </div>
+            <div
+              class="tab-pane fade"
+              id="profile"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+              style="margin-top: -30px;"
+            >    
+              <div class="row">
+            
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nombre"
+                      value="{{currentUser.username}}"
+                      name="username"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Apellido"
+                      value="{{currentUser.surname}}"
+                      name="surname"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Dirección"
+                      value="{{currentUser.direccion}}"
+                      name="direccion"
+                    />
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Email"
+                      value="{{currentUser.email}}"
+                      name="email"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4 row">
+                  <div class="form-group col-md-4">
+                    <select class="form-control" name="codTlf"  >
+                      <option>
+                        {{codTlf}}
+                      </option>
+                      <option>
+                        +58
+                      </option>
+                      <option>+52</option>
+                      <option>+507</option>
+                      <option>+41</option>
+                      <option>+352</option>
+                      <option>+39</option>
+                      <option>+33</option>
+                      <option>+34</option>
+                      <option>+57</option>
+                      <option>+56</option>
+                      <option>+55</option>
+                      <option>+61</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-8 " style="width: 116%;">
+                    <input
+                      type="text"
+                      minlength="10"
+                      maxlength="10"
+                      name="telefono"
+                      class="form-control"
+                      placeholder="Telefono"
+                      value="{{phone}}"
+                      style="width: 116%;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <br />
+
+              <div class="col-md-2 center">
+                <input
+                  type="submit"
+                  class="profile-edit-btn btn btn-outline-secondary"
+                  name="btnAddMore"
+                  value="Editar Perfil"
+                />
+              </div>
+            
+</form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

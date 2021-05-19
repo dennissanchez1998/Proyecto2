@@ -28,6 +28,9 @@ require('./configs/session.config')(app);
 
 app.use(function (req, res, next) {
   res.locals.currentUser = req.session.currentUser;
+  res.locals.codTlf = req.session.codTlf;
+  res.locals.phone = req.session.phone;
+
   next();
 });
 
@@ -38,6 +41,11 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.send('index');
+})
 
 // Express View engine setup
 
@@ -68,6 +76,9 @@ app.use('/auth', auth);
 
 const rm = require('./routes/rooms');
 app.use('/', rm);
+
+const user = require('./routes/user');
+app.use('/user', user);
 
 
 module.exports = app;

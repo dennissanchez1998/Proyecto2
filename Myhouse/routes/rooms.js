@@ -3,7 +3,12 @@ const router = express.Router();
 const Room = require('../models/Room.models')
 
 router.get('/rooms', (req, res, next) => {
-    Room.find()
+  const user = req.session.currentUser
+  if (!user) {
+    res.redirect("/auth/login");
+    return
+  }
+  Room.find()
     .then((prueba) => {
 
       res.render("rooms/listroom", {
@@ -16,23 +21,30 @@ router.get('/rooms', (req, res, next) => {
 
 })
 
- //get movie id   
- router.get("/room/:id", (req, res, next) => {
-/*  const user = req.session.currentUser
-if (!user) {
-return res.redirect("/login");
-}*/
-    const { id } = req.params;
-    Room.findById(id)
-      .then((DBbyId) => {
-        console.log("Chosen", DBbyId);
-        res.render("room/room-details", { room: DBbyId });
-      })
-      .catch((error) => {
-        console.log("Error while showing movie details", error);
+//get movie id   
+router.get("/room/:id", (req, res, next) => {
+  const user = req.session.currentUser
+  if (!user) {
+    res.redirect("/auth/login");
+    return
+    }
+    const {
+      id
+    } = req.params;
+  Room.findById(id)
+    .then((DBbyId) => {
+      console.log("Chosen", DBbyId);
+      res.render("room/room-details", {
+        room: DBbyId
       });
-  });
-
+    })
+    .catch((error) => {
+      console.log("Error while showing movie details", error);
+    });
+});
+router.get((req, res) => {
+  res.redirect('/');
+})
 
 
 module.exports = router;

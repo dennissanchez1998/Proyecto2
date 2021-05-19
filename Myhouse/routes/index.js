@@ -6,17 +6,11 @@ console.log("se conecto el js");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  const user = req.session.currentUser;
-
-  if (!user) {
-    res.redirect("/auth/login");
-    return
-  }
-
-  res.render('index', {
-    user: req.session.currentUser
-  });
+ 
+    res.render("index");
 
 });
-
+router.get((req, res) => {
+  res.redirect('/');
+})
 module.exports = router;
