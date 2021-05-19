@@ -713,6 +713,14 @@ MyRooms
   font-size: 24px;
   font-weight: bold; }
 
+.titulo2 {
+  font-family: 'Pattaya', sans-serif;
+  font-size: 30px;
+  font-weight: bold; }
+
+.formulario {
+  margin: 2%; }
+
 /*
 
 MyRooms

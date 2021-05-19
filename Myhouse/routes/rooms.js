@@ -34,7 +34,7 @@ router.get("/room/:id", (req, res, next) => {
   Room.findById(id)
     .then((DBbyId) => {
       console.log("Chosen", DBbyId);
-      res.render("room/room-details", {
+      res.render("rooms/room-details", {
         room: DBbyId
       });
     })
