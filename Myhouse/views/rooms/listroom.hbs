@@ -1,9 +1,38 @@
+<br>
+<br>
+<br>
+<br>
 <div class="Bigbox">
   <div class="roomboxglobal">
+
+    {{#each room}}
+<div class="card" style="width: 18rem;">
+  
+  <a href="/room/{{_id}}" class="roomboxlink">
+    <div class="card-body">
+    <h5 class="card-title black">  {{title}}</h5>
+    <p class="card-text">Propietario:{{author}}</p>
+  </div>
+  <img src="{{testimageUrl}}" class="card-img-top" alt="...">
+  <h10 class="card-title black">| {{housetype}} || {{roomsize}} m2 en cuarto || {{housesize}} m2 de casa | </h10>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <div class="card-body">
+
+  </div>
+  </a>
+</div>
+{{/each}}
+
     {{#each room}}
       <div>
           <div class="roomboxbig">
-        <a href="room/{{_id}}" class="roomboxlink">
+        <a href="/room/{{_id}}" class="roomboxlink">
           <div class="room_box">
 
             <h5 class="Roomboxtitle">

@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Room = require('../models/room.models');
 
-const DB_NAME = 'myhouse';
+const DB_NAME = 'my-house';
 
 mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
   useCreateIndex: true,
