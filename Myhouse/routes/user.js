@@ -35,8 +35,18 @@ router.post('/edit', upload.single('photo'), (req, res) => {
 
 
     const tlf = `${codTlf}-${telefono}`;
+    let ruta;
     req.session.codTlf = codTlf;
     req.session.phone = telefono;
+    console.log(typeof req.file);
+
+    if (req.file === "" || req.file === null || typeof req.file === 'undefined') {
+        ruta = user.img;
+
+    } else {
+        console.log("entro al if");
+        ruta = `/uploads/${req.file.filename}`
+    }
 
 
     User.findByIdAndUpdate(user._id, {
@@ -45,7 +55,7 @@ router.post('/edit', upload.single('photo'), (req, res) => {
         surname,
         telefono: tlf,
         direccion,
-        img: `/uploads/${req.file.filename}`
+        img: ruta
     }).then(user => {
         console.log(user);
         User.findById(user._id)
