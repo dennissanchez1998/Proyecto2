@@ -17,11 +17,7 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    ></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -40,74 +36,102 @@
     />
 
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
   </head>
   <body>
-<div style="position: fixed; top: 0; width: 100%;">
-    <nav
-      class="main-navigation top-nav "
-      style="border-bottom-style: solid; border-bottom-width: 1px; "
-    >
-      <div class="navbar-header animated fadeInUp">
-        <a class="navbar-brand nav-link" href="/" style=" height: auto;">
+    <div style="position: fixed; top: 0; width: 100%; z-index: 100;">
+      <nav
+        class="main-navigation top-nav"
+        style="border-bottom-style: solid; border-bottom-width: 1px; "
+      >
+        <div class="navbar-header animated fadeInUp">
+          <a
+            class="navbar-brand nav-link"
+            href="/"
+            style=" height: 100%; z-index: 100;"
+          >
 
-          <img
-            src="/images/aplicaciondecasas.png"
-            class="imagen"
-            style="z-index: -10;"
-          />
-        </a>
-      </div>
-      <ul class="nav-list">
+            <img
+              src="/images/aplicaciondecasas.png"
+              class="imagen"
+              style="z-index: -10;"
+            />
 
-        {{#if currentUser}}
-          <li class="nav-list-item">
-            <button
-              type="button"
-              class="btn btn-outline-dark"
-              style="font-weight: bold"
-            >Publica tu Propiedad</button>
-          </li>
+          </a>
+        </div>
+        <ul class="nav-list">
 
-          <li class="nav-list-item">
-            <a href="/auth/logout" class="nav-link">Cerrar sesión</a>
-          </li>
+          {{#if currentUser}}
+            <li class="nav-list-item">
+              <button
+                type="button"
+                class="btn btn-outline-dark"
+                style="font-weight: bold"
+              >Publica tu Propiedad</button>
+            </li>
+                <li class="nav-list-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            </li>
+                <li class="nav-list-item">
+              <a href="/rooms" class="nav-link">Inmuebles</a>
+            </li>
 
-        {{else}}
+               <li class="nav-list-item">
+              <a href="/auth/logout" class="nav-link">Mis Publicaciones</a>
+            
+              </i>
+            </li>
 
-          <li class="nav-list-item">
-            <a href="/auth/register" class="nav-link">Registro</a>
-          </li>
-          <li class="nav-list-item">
-            <a href="/auth/login" class="nav-link">Iniciar sesión</a>
-          </li>
+            <li class="nav-list-item">
+              <a href="/auth/logout" class="nav-link">Cerrar sesión</a>
+            
+              </i>
+            </li>
 
-        {{/if}}
+             
+      
 
-      </ul>
+             <li class="nav-list-item"  style="border-left-style: solid; border-left-width: 1px; " >
+              <a href="/user/view" class="nav-link">Hola {{currentUser.username}}
+               <i class="fas fa-users box-circle-solid-dark " aria-hidden="true" style="height: 50px; margin-right: 20px;">
+              </i>
+              </a>
+            </li>
 
-    </nav>
- </div>
+          {{else}}
+            <li class="nav-list-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-list-item">
+              <a href="/auth/register" class="nav-link">Registro</a>
+            </li>
+            <li class="nav-list-item">
+              <a href="/auth/login" class="nav-link"><button
+                type="button"
+                class="btn btn-outline-dark"
+                style="font-weight: bold"
+              >Iniciar Sesión</button></a>
+            </li>
+
+          {{/if}}
+
+        </ul>
+
+      </nav>
+    </div>
 
     {{{body}}}
 
     <script src="/javascripts/script.js"></script>
 
     <script>
-  $(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
-
-    if (scroll >= 100) {
-        $(".top-nav").addClass("light-header");
-    } else {
-        $(".top-nav").removeClass("light-header");
-    }
-});
-
+      $(window).scroll(function() { var scroll = $(window).scrollTop(); if
+      (scroll >= 20) { $(".top-nav").addClass("light-header"); } else {
+      $(".top-nav").removeClass("light-header"); } });
 
     </script>
   </body>

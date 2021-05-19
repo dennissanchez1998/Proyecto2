@@ -8,7 +8,6 @@ const userSchema = new Schema({
             type: String,
             trim: true,
             required: [true, 'Nombre es requerido.'],
-            unique: true
         },
         email: {
             type: String,
@@ -20,7 +19,6 @@ const userSchema = new Schema({
             type: String,
             trim: true,
             required: [true, 'Apellido es requerido.'],
-            unique: true
         },
 
         passwordHash: {
@@ -30,7 +28,12 @@ const userSchema = new Schema({
         telefono: {
             type: String,
             required: [true, 'Telefono es requerida']
-        }
+        },
+        direccion: {
+                type: String,
+                required: [true, 'Direccion es requerida']
+            },
+            img: String
 
     }, {
         timestamps: true

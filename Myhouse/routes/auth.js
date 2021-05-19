@@ -32,8 +32,10 @@ router.post('/login', (req, res, next) => {
                 res.render('auth/login');
                 return;
             } else if (bcryptjs.compareSync(password, usuario.passwordHash)) {
+                req.session.codTlf = usuario.telefono.slice(0, 3);
+                req.session.phone = usuario.telefono.slice(4);
                 req.session.currentUser = usuario
-                res.redirect('/')
+                res.redirect('/rooms');
                 return;
             } else {
                 res.render('auth/login');
@@ -64,10 +66,15 @@ router.post('/register', (req, res, next) => {
         surname,
         confirmPassword,
         codTlf,
-        telefono
+        telefono,
+        direccion
     } = req.body;
 
     const tlf = `${codTlf}-${telefono}`;
+    req.session.codTlf = codTlf;
+    req.session.phone = telefono;
+
+    console.log();
 
     bcryptjs.genSalt(saltRounds)
         .then(salt => bcryptjs.hash(password, salt))
@@ -77,12 +84,13 @@ router.post('/register', (req, res, next) => {
                 email,
                 surname,
                 passwordHash: hashed,
-                telefono: tlf
+                telefono: tlf,
+                    direccion
             })
         }).then(user => {
 
             req.session.currentUser = user;
-            res.redirect('/');
+            res.redirect('/rooms');
         }).catch(e => {
             console.log(e);
         })
@@ -93,5 +101,9 @@ router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/auth/login');
 });
+
+router.get((req, res) => {
+    res.redirect('/');
+})
 
 module.exports = router;
