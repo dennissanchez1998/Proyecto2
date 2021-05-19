@@ -6,78 +6,34 @@
   <div class="roomboxglobal">
 
     {{#each room}}
-<div class="card" style="width: 18rem;">
-  
-  <a href="/room/{{_id}}" class="roomboxlink">
-    <div class="card-body">
-    <h5 class="card-title black">  {{title}}</h5>
-    <p class="card-text">Propietario:{{author}}</p>
-  </div>
-  <img src="{{testimageUrl}}" class="card-img-top" alt="...">
-  <h10 class="card-title black">| {{housetype}} || {{roomsize}} m2 en cuarto || {{housesize}} m2 de casa | </h10>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
+    <div class="card Bigbox" style="width: 25rem;  ">
 
-  </div>
-  </a>
-</div>
-{{/each}}
-
-    {{#each room}}
-      <div>
-          <div class="roomboxbig">
-        <a href="/room/{{_id}}" class="roomboxlink">
-          <div class="room_box">
-
-            <h5 class="Roomboxtitle">
-              {{title}}
-            </h5>
-            <h6 class="Roomboxtitle">Propietario:{{author}}
-            </h6>
-            <div>
-              <img src="{{testimageUrl}}" class="roomlistimg" />
-            </div>
-            <div class="roomsubbox1">
-              <div class="subimagelistbox">| {{housetype}}</div>
-              <div class="subimagelistbox">|| {{roomsize}} m2 en cuarto</div>
-              <div class="subimagelistbox">|| {{housesize}} m2 de casa</div>
-            </div>
-            <div class="roomboxsubtitle">
-              <h5> Gastos:</h5>
-            </div>
-            <div class="roomsubbox">
-              <div class="roomsubtinybox">
-                <div>Renta</div>
-                <div class="buttonroomlist">{{rent}} $/mes</div>
-              </div>
-              {{#if maintenance}}
-                <div class="roomsubtinybox">
-                  <div>Mantenimiento</div>
-                  <div class="buttonroomlist">Incluido!</div>
-                </div>
-              {{/if}}
-              {{#if servicios}}
-                <div class="roomsubtinybox">
-                  <div>Servicios</div>
-                  <div class="buttonroomlist">Incluido!</div>
-                </div>
-              {{/if}}
-            </div>
+      <a href="/room/{{_id}}" class="roomboxlink">
+        <div>
+          <div class="card-body">
+            <h5 class="card-title black"> {{title}}</h5>
+            <p class="card-text">Propietario:{{author}}</p>
           </div>
-        </a>
+          <img src="{{testimageUrl}}" class="card-img-top" alt="...">
+          <h10 class="card-title black margintitle">| {{housetype}} || {{roomsize}} m2 en cuarto || {{housesize}} m2 de casa |
+          </h10>
+          <p class="card-text">.</p>
         </div>
-      </div>
-
-    {{/each}}
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Renta:</strong> {{rent}} $/mes</li>
+          <li class="list-group-item"><strong>Mantenimiento:</strong> {{#if maintenance}}Incluido! {{else}} No Incluido! {{/if}}</li>
+          <li class="list-group-item"><strong>Servicios:</strong> {{#if servicios}}Incluido! {{else}} No Incluido! {{/if}}</li>
+        </ul>
+      </a>
+    </div>
+   
+      {{/each}}
   </div>
- {{!--  <img
-    class="maplistimg"
-    src="https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png"
-  /> --}}
+
+
+
+</div>
+
+<iframe class="maplistimg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d481728.80465062865!2d-99.42382104334503!3d19.390519015859844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0026db097507%3A0x54061076265ee841!2zQ2l1ZGFkIGRlIE3DqXhpY28sIENETVgsIE3DqXhpY28!5e0!3m2!1ses!2sve!4v1621455527833!5m2!1ses!2sve" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
 </div>

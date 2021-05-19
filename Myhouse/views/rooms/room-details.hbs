@@ -2,12 +2,19 @@
 <br>
 <br>
 <br>
-<div>Images Box</div>
-<img class=" imgidroom " src="{{room.testimageUrl}}"></div>
-<br>
-<br>
-<div class="container">
-  <div class="roomlistingboxdescription">
+
+<div class="card container">
+  <div class="card-body">
+    <h5 class="card-title">{{room.title}}</h5>
+    <p class="card-text">Propietario: {{room.author}}</p>
+    <p class="card-text"><strong>Descripcion:</strong><small class="text-muted">{{room.description}}</small></p>
+  </div>
+  <img src="{{room.testimageUrl}}" class="card-img-bottom" alt="...">
+      <div class="d-flex flex-column justify-content-around">
+</div>
+
+<div class=" card container Bigbox ">
+  <div class="roomlistingboxdescription p-3">
     <div>
       <h1> {{room.title}}</h1>
       <h2>Propietario: {{room.author}}</h2>
@@ -25,34 +32,34 @@
   </div>
 </div>
 <br>
-<div class="container">
+<div class="container card p-3">
   <br>
   <h3> Gastos</h3>
   <br>
   <div class="d-flex flex-row justify-content-around">
         <div class="d-flex flex-column">
       <h5> Renta</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://pics.freeicons.io/uploads/icons/png/21256046391535797982-512.png">
         <br>
-        <p>-->{{room.rent}} $ al mes</p>
+        <p>$ {{room.rent}} al mes</p>
       </div>
     </div>
         <div class="d-flex flex-column">
       <h5> Deposito</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://pics.freeicons.io/uploads/icons/png/21256046391535797982-512.png">
         <br>
-        <p>-->{{room.deposit}} $</p>
+        <p>$ {{room.deposit}}</p>
       </div>
     </div>
     {{#if maintenance}}
     <div class="d-flex flex-column">
       <h5> Mantenimiento</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://pics.freeicons.io/uploads/icons/png/18094408061582960201-512.png">
         <br>
-        <p>-->mantenimiento <br>incluido</p>
+        <p>Mantenimiento <br>incluido</p>
       </div>
     </div>
 {{/if}}
@@ -60,10 +67,10 @@
     {{#if servicios}}
     <div class="d-flex flex-column">
       <h5> Servicios</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://pics.freeicons.io/uploads/icons/png/1033471011586787980-512.png">
         <br>
-        <p>-->Servicios <br>incluidos</p>
+        <p>Servicios <br>incluidos</p>
       </div>
     </div>
 {{/if}}
@@ -71,7 +78,7 @@
 </div>
 <br>
 
-<div class="container">
+{{!-- <div class="container card p-3">
     <br>
   <h3> Disponibilidad</h3>
 
@@ -79,92 +86,97 @@
     {{#if rented}}
     <div>No Disponible</div>
     {{else}}
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-column">
       <img class="iconroom" src="https://icon-library.com/images/available-icon/available-icon-26.jpg">
+      <br>
       <div class="ml-100">Disponible Ahora!</div>
     </div>
 
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-column">
       <img class="iconroom" src="https://d29fhpw069ctt2.cloudfront.net/icon/image/38308/preview.svg">
+      <br>
       <div>Estancia minima <br> de {{room.minstay}} mes</div>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-column">
       <img class="iconroom" src="https://d29fhpw069ctt2.cloudfront.net/icon/image/38308/preview.svg">
+      <br>
       <div>Estancia maxima <br> de {{room.maxstay}} mes</div>
 
     </div>
   </div>
   {{/if}}
-</div>
+</div> --}}
 
 <br>
-<div class="container">
+<div class="container card p-3">
   <br>
   <h3> Companeros de Piso</h3>
   <br>
   <div class="d-flex flex-row justify-content-around">
 
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-column">
       <img class="iconroom" src="https://pics.freeicons.io/uploads/icons/png/2985742661548234958-512.png">
-      <p>-->{{room.manroomate}} hombre(s)</p>
+      <br>
+      <p>{{room.manroomate}} hombre(s)</p>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-column">
       <img class="iconroom" src="https://pics.freeicons.io/uploads/icons/png/6620618271548234969-512.png">
-      <p>-->{{room.girlroomate}} mujer(es)</p>
+      <br>
+      <p>{{room.girlroomate}} mujer(es)</p>
     </div>
   </div>
 </div>
 
 <br>
-<div class="container">
+<div class="container card p-3">
   <br>
-  <h3> Tamanos General De La Casa</h3>
+  <h3> Characteristicas</h3>
   <br>
   <div class="d-flex flex-row justify-content-around">
 
     <div class="d-flex flex-column">
       <h5> Cuarto</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://cdn.iconscout.com/icon/premium/png-512-thumb/suite-room-1-501683.png">
         <br>
-        <p>-->{{room.roomsize}} m2</p>
+        <p>{{room.roomsize}} m2</p>
       </div>
     </div>
 
     <div class="d-flex flex-column">
       <h5> Casa</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://pics.freeicons.io/uploads/icons/png/5205410931579605509-512.png">
         <br>
-        <p>-->{{room.housesize}} m2</p>
+        <p>{{room.housesize}} m2</p>
       </div>
     </div>
 
     
     <div class="d-flex flex-column">
       <h5> Cuarto Individual</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://img.icons8.com/pastel-glyph/64/000000/single-bed--v6.png">
         <br>
-        <p>-->{{room.singlerooms}} Individuales</p>
+        <p>{{room.singlerooms}} Individuales</p>
       </div>
     </div>
 
     <div class="d-flex flex-column">
       <h5> Cuarto Doble</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://img.icons8.com/wired/64/000000/double-bed.png">
         <br>
-        <p>-->{{room.doublerooms}} Doble</p>
+        <p>{{room.doublerooms}} Doble</p>
       </div>
     </div>
 
     <div class="d-flex flex-column">
       <h5> Banos</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom" src="https://img.icons8.com/ios/100/000000/sink.png">
         <br>
-        <p>-->{{room.bathrooms}} Banos</p>
+        <p>{{room.bathrooms}} Banos</p>
       </div>
     </div>
 
@@ -172,7 +184,7 @@
 </div>
 <br>
 
-<div class="container">
+{{!-- <div class="container card p-3">
   <br>
   <h3> Especificaciones del Cuarto</h3>
   <br>
@@ -180,39 +192,39 @@
 
     <div class="d-flex flex-column">
       <h5> Cama de cuarto</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom"
           src="https://www.pngfind.com/pngs/m/144-1449288_png-file-svg-hotel-bed-icon-png-transparent.png">
         <br>
-        <p>-->{{room.Bedsize}}</p>
+        <p>{{room.Bedsize}}</p>
       </div>
     </div>
     {{#if room.privatebathroom}}
     <div class="d-flex flex-column">
       <h5> Bano Privado</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom"
           src="https://cdn.icon-icons.com/icons2/2054/PNG/512/toilet_paper_wc_restroom_sanitary_hygienetoilet_bathroom_icon_124451.png">
         <br>
-        <p>-->Con Bano privado</p>
+        <p>Con Bano privado</p>
       </div>
     </div>
     {{/if}}
 
         <div class="d-flex flex-column">
       <h5> Tipo de Listado</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
          <img class="iconroom"
           src="https://img.icons8.com/dotty/80/000000/visible.png">
         <br>
-        <p>-->{{room.housetype}}</p>
+        <p>{{room.housetype}}</p>
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <br>
-<div class="container">
+<div class="container card p-3">
   <br>
   <h3> Preferencias de Inquilino</h3>
   <br>
@@ -220,7 +232,7 @@
     {{#if room.manroomate}}
     <div class="d-flex flex-column">
       <h5> Hombres</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom"
           src="https://pics.freeicons.io/uploads/icons/png/2985742661548234958-512.png">
         <br>
@@ -230,7 +242,7 @@
     {{#if room.girlroomate}}
     <div class="d-flex flex-column">
       <h5> Mujeres</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom"
           src="https://pics.freeicons.io/uploads/icons/png/6620618271548234969-512.png">
         <br>
@@ -241,7 +253,7 @@
         {{#if room.petsallowed}}
     <div class="d-flex flex-column">
       <h5> Mascotas</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom"
           src="https://img.icons8.com/plasticine/100/000000/dog.png">
         <br>
@@ -252,7 +264,7 @@
         {{#if room.couplesallowed}}
     <div class="d-flex flex-column">
       <h5> Parejas</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom"
           src="https://img.icons8.com/dusk/64/000000/couple-man-woman.png">
         <br>
@@ -262,7 +274,7 @@
     {{#if room.smokingallowed}}
     <div class="d-flex flex-column">
       <h5> Smoking</h5>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-column">
         <img class="iconroom"
           src="https://pics.freeicons.io/uploads/icons/png/16243530461555937043-512.png">
         <br>
@@ -275,7 +287,7 @@
 </div>
 
 <br>
-<div class="container">
+<div class="container card p-3">
   <br>
   <h3> Amenities</h3>
   <br>
@@ -362,7 +374,7 @@
                 width="150">
               <div class="mt-3">
                 <h4>John Doe</h4>
-                <p class="text-secondary mb-1">Full Stack Developer</p>
+                <p class="text-secondary mb-1">Propietario</p>
                 <a #href = "/"><button class="btn btn-outline-primary">Contacta</button></a>
               </div>
             </div>
@@ -515,12 +527,13 @@
   </div>
 </div>
 
-<div class="container ">
+<div class="container card bigbox">
   <br>
    <h4> Direccion:</h4>
   <p class ="">{{room.direccion}}</p>
   <h4> Piso:</h4>
-  <p class = "align-self-center">{{room.pisopuerta}}</p>
+  <p class = "">{{room.pisopuerta}}</p>
  
  </div>
 <br>
+<iframe class ="listmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.4855057328405!2d-99.24197248498068!3d19.391417836907756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20105e1d0b6b3%3A0xc630c568f4c4a95c!2sAv.%20Paseo%20de%20la%20Reforma%202693%2C%20Lomas%20de%20Bezares%2C%20Miguel%20Hidalgo%2C%2011930%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1621455799777!5m2!1ses!2smx" width="1450" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
