@@ -47,4 +47,13 @@ router.get((req, res) => {
 })
 
 
+//get misPublicaciones
+
+router.get('/publicaciones', (req, res) => {
+
+
+  console.log("mis publicaciones");
+  res.render('rooms/myRooms')
+})
+
 module.exports = router;
