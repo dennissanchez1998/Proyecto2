@@ -1,0 +1,54 @@
+<div class="Bigbox">
+  <div class="roomboxglobal">
+    {{#each room}}
+      <div>
+          <div class="roomboxbig">
+        <a href="room/{{_id}}" class="roomboxlink">
+          <div class="room_box">
+
+            <h5 class="Roomboxtitle">
+              {{title}}
+            </h5>
+            <h6 class="Roomboxtitle">Propietario:{{author}}
+            </h6>
+            <div>
+              <img src="{{testimageUrl}}" class="roomlistimg" />
+            </div>
+            <div class="roomsubbox1">
+              <div class="subimagelistbox">| {{housetype}}</div>
+              <div class="subimagelistbox">|| {{roomsize}} m2 en cuarto</div>
+              <div class="subimagelistbox">|| {{housesize}} m2 de casa</div>
+            </div>
+            <div class="roomboxsubtitle">
+              <h5> Gastos:</h5>
+            </div>
+            <div class="roomsubbox">
+              <div class="roomsubtinybox">
+                <div>Renta</div>
+                <div class="buttonroomlist">{{rent}} $/mes</div>
+              </div>
+              {{#if maintenance}}
+                <div class="roomsubtinybox">
+                  <div>Mantenimiento</div>
+                  <div class="buttonroomlist">Incluido!</div>
+                </div>
+              {{/if}}
+              {{#if servicios}}
+                <div class="roomsubtinybox">
+                  <div>Servicios</div>
+                  <div class="buttonroomlist">Incluido!</div>
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
+
+    {{/each}}
+  </div>
+ {{!--  <img
+    class="maplistimg"
+    src="https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png"
+  /> --}}
+</div>
