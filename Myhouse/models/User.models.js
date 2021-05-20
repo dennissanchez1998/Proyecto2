@@ -33,7 +33,11 @@ const userSchema = new Schema({
                 type: String,
                 required: [true, 'Direccion es requerida']
             },
-            img: String
+    img: String,
+        publicaciones: [{
+            type: Schema.Types.ObjectId,
+            ref: "Room"
+        }]
 
     }, {
         timestamps: true

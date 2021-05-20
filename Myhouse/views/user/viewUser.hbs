@@ -78,9 +78,13 @@
         <div class="col-md-4">
           <div class="profile-work">
             <p style="font-size: 20px;">Publicaciones</p>
-            <a href="">Publicacion 1</a><br />
-            <a href="">publicacion 2</a><br />
-            <a href="">publicacion 3</a>
+
+            {{#each publicaciones}}
+            <a href="/room/{{this._id}}" style="font-size: 14px; font-family: Arial; font-style: bold;">
+       Titulo :     {{this.titulo}} 
+            </a><br>
+           
+            {{/each}}
 
           </div>
         </div>

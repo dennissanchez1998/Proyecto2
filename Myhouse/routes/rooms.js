@@ -1,6 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const Room = require('../models/Room.models')
+const Room = require('../models/Room.models');
+const User = require('../models/User.models');
+
+const multer = require('multer');
+const upload = multer({
+  dest: './public/uploads/'
+});
+
 
 router.get('/rooms', (req, res, next) => {
   const user = req.session.currentUser
@@ -27,10 +34,10 @@ router.get("/room/:id", (req, res, next) => {
   if (!user) {
     res.redirect("/auth/login");
     return
-    }
-    const {
-      id
-    } = req.params;
+  }
+  const {
+    id
+  } = req.params;
   Room.findById(id)
     .then((DBbyId) => {
       console.log("Chosen", DBbyId);
@@ -47,13 +54,101 @@ router.get((req, res) => {
 })
 
 
-//get misPublicaciones
+//get crear Publicaciones
 
 router.get('/publicaciones', (req, res) => {
-
+  const user = req.session.currentUser
+  if (!user) {
+    res.redirect("/auth/login");
+    return
+  }
 
   console.log("mis publicaciones");
   res.render('rooms/myRooms')
 })
+
+//post crear Publicaciones
+
+router.post('/publicaciones', upload.array('photo', 10), (req, res) => {
+      const user = req.session.currentUser
+      if (!user) {
+        res.redirect("/auth/login");
+        return
+      }
+
+      let path = []
+
+      req.files.map(producto => {
+        path.push(`/uploads/${producto.filename}`);
+
+      });
+
+      const {
+        direccion,
+        tipo,
+        hombres,
+        mujeres,
+        titulo,
+        renta,
+        deposito,
+        cuartos,
+        banos,
+        descripcion,
+        HombresPreferencias,
+        mascotas,
+        pareja,
+        smoking,
+        tv,
+        wifi,
+        aire,
+        lavanderia,
+        elevador,
+        estacionamiento
+      } = req.body
+
+      Room.create({
+        direccion,
+        tipo,
+        hombres,
+        mujeres,
+        renta,
+        deposito,
+        titulo,
+        cuartos,
+        banos,
+        descripcion,
+        HombresPreferencias,
+        mascotas,
+        pareja,
+        smoking,
+        tv,
+        wifi,
+        aire,
+        lavanderia,
+        elevador,
+        estacionamiento,
+        user: user._id,
+        image: [...path]
+      }).then(prueba => {
+        User.findByIdAndUpdate(user._id, {
+          $push: {
+            publicaciones: prueba._id
+          }
+
+        }).then(creado => {
+          req.session.currentUser = creado;
+          res.locals.currentUser = creado;
+          res.redirect('/rooms');
+        })
+      }).catch(e => {
+        console.log(e);
+      })
+})
+
+//get mis publicaciones
+
+/* router.get('/misPublicaciones', (req, res) => {
+
+}) */
 
 module.exports = router;
