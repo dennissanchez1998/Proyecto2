@@ -4,25 +4,92 @@ const {
 } = require("mongoose");
 
 const roomSchema = new Schema({
-    ciudad: {
-        type: String
-    },
     direccion: {
         type: String
     },
-    pisopuerta: {
+    tipo: {
+            type: String,
+            enum: ["Cuarto Privado", 'Casa Entera', "Cuarto Compartido"]
+        },
+        titulo: {
         type: String
     },
-    title: {
+    renta: {
+            type: Number
+        },
+        hombres: {
+            type: Number
+        },
+        mujeres: {
+            type: Number
+        },
+        deposito: {
+            type: Number
+        },
+        cuartos: {
+            type: Number
+        },
+        banos: {
+            type: Number
+        },
+        descripcion: {
         type: String
     },
-    description: {
-        type: String
+    HombresPreferencias: {
+            type: Boolean,
+            default: false
+        },
+        mascotas: {
+            type: Boolean,
+            default: false
+        },
+        pareja: {
+            type: Boolean,
+            default: false
+        },
+        smoking: {
+            type: Boolean,
+            default: false
+        },
+        tv: {
+            type: Boolean,
+            default: false
+        },
+        wifi: {
+            type: Boolean,
+            default: false
+        },
+        aire: {
+                type: Boolean,
+                default: false
+            },
+            lavanderia: {
+                type: Boolean,
+                default: false
+            },
+            elevador: {
+                type: Boolean,
+                default: false
+            },
+            estacionamiento: {
+                type: Boolean,
+                default: false
     },
-    testimageUrl: {
+    image: [{
         type: String
-    },
-    housetype: {type: String, enum :[ "Cuarto Privado",'Casa Entera',"Cuarto Compartido"]},
+    }],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+
+    }
+    }, {
+        timestamps: true
+    })
+
+    module.exports = model('Room', roomSchema);
+
+    /*   housetype: {type: String, enum :[ "Cuarto Privado",'Casa Entera',"Cuarto Compartido"]},
     rent: {type: Number},
     deposit: {type: Number},
     manroomate:{type: Number},
@@ -52,7 +119,10 @@ const roomSchema = new Schema({
     servicios:  {type: Number, enum :[ 0,1]},
     videocall: {type: Number, enum :[ 0,1]},
     homevisit: {type: Number, enum :[ 0,1]},
-    startvisitdate: {type: Date},
+    startvisitdate: {
+        type: Date,
+        default: false
+    },
     visitmonday: {type: Number, enum :[ 0,1]},
     visituesday: {type: Number, enum :[ 0,1]},
     visitwednesday: {type: Number, enum :[ 0,1]},
@@ -76,10 +146,4 @@ const roomSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    reviews: [], // we will update this field a bit later when we create review model
-
-},
-{ timestamps: true }
-)
-
-module.exports = model('Room', roomSchema);
+    reviews: [], // we will update this field a bit later when we create review model */
