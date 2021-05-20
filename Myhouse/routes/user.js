@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User.models');
-const js = require('../public/javascripts/script');
 const multer = require('multer');
 const upload = multer({
     dest: './public/uploads/'
@@ -13,7 +12,12 @@ router.get('/view', (req, res) => {
         res.redirect("/auth/login");
         return
     }
-    res.render('user/viewUser');
+    User.findById(user._id)
+        .populate('publicaciones')
+        .then(prueba => {
+            res.render('user/viewUser', prueba);
+        })
+
 })
 
 

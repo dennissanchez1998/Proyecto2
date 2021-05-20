@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Room = require('../models/Room.models');
+const User = require('../models/User.models');
 
 const multer = require('multer');
 const upload = multer({
@@ -78,7 +79,7 @@ router.post('/publicaciones', upload.array('photo', 10), (req, res) => {
       let path = []
 
       req.files.map(producto => {
-        path.push(producto.filename);
+        path.push(`/uploads/${producto.filename}`);
 
       });
 
@@ -129,7 +130,16 @@ router.post('/publicaciones', upload.array('photo', 10), (req, res) => {
         user: user._id,
         image: [...path]
       }).then(prueba => {
-        console.log(prueba);
+        User.findByIdAndUpdate(user._id, {
+          $push: {
+            publicaciones: prueba._id
+          }
+
+        }).then(creado => {
+          req.session.currentUser = creado;
+          res.locals.currentUser = creado;
+          res.redirect('/rooms');
+        })
       }).catch(e => {
         console.log(e);
       })
