@@ -3,9 +3,9 @@
 const mongoose = require('mongoose');
 const Room = require('../models/room.models');
 
-const DB_NAME = 'my-house';
-
-mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
+/*const DB_NAME = 'mongodb://localhost/my-house';*/
+DB_NAME = process.env.MONGODB_URL
+mongoose.connect(`${DB_NAME}`, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true
