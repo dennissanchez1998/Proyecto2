@@ -19,9 +19,9 @@ const roomSchema = new Schema({
     description: {
         type: String
     },
-    testimageUrl: {
+    image: [{
         type: String
-    },
+    }],
     housetype: {type: String, enum :[ "Cuarto Privado",'Casa Entera',"Cuarto Compartido"]},
     rent: {type: Number},
     deposit: {type: Number},

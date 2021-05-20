@@ -8,6 +8,7 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
+global.myvar = 100;
 /*mongoose
   .connect('mongodb://localhost/my-house', {
     useNewUrlParser: true
@@ -30,6 +31,8 @@ app.use(function (req, res, next) {
   res.locals.currentUser = req.session.currentUser;
   res.locals.codTlf = req.session.codTlf;
   res.locals.phone = req.session.phone;
+  
+  global.imgLocal = ["@", "3"]
 
   next();
 });

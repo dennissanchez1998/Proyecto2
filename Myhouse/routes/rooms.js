@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const Room = require('../models/Room.models')
+const Room = require('../models/Room.models');
+
+const multer = require('multer');
+const upload = multer({
+  dest: './public/uploads/'
+});
+
 
 router.get('/rooms', (req, res, next) => {
   const user = req.session.currentUser
@@ -54,6 +60,14 @@ router.get('/publicaciones', (req, res) => {
 
   console.log("mis publicaciones");
   res.render('rooms/myRooms')
+})
+
+//post misPublicaciones
+
+router.post('/publicaciones', upload.array('photo', 5), (req, res) => {
+
+  console.log(req.files);
+  console.log(req.body);
 })
 
 module.exports = router;
