@@ -33,10 +33,10 @@ router.get("/room/:id", (req, res, next) => {
   if (!user) {
     res.redirect("/auth/login");
     return
-    }
-    const {
-      id
-    } = req.params;
+  }
+  const {
+    id
+  } = req.params;
   Room.findById(id)
     .then((DBbyId) => {
       console.log("Chosen", DBbyId);
@@ -56,7 +56,11 @@ router.get((req, res) => {
 //get misPublicaciones
 
 router.get('/publicaciones', (req, res) => {
-
+  const user = req.session.currentUser
+  if (!user) {
+    res.redirect("/auth/login");
+    return
+  }
 
   console.log("mis publicaciones");
   res.render('rooms/myRooms')
@@ -64,8 +68,71 @@ router.get('/publicaciones', (req, res) => {
 
 //post misPublicaciones
 
-router.post('/publicaciones', upload.array('photo', 5), (req, res) => {
+router.post('/publicaciones', upload.array('photo', 10), (req, res) => {
+      const user = req.session.currentUser
+      if (!user) {
+        res.redirect("/auth/login");
+        return
+      }
 
+      let path = []
+
+      req.files.map(producto => {
+        path.push(producto.filename);
+
+      });
+
+      const {
+        direccion,
+        tipo,
+        hombres,
+        mujeres,
+        titulo,
+        renta,
+        deposito,
+        cuartos,
+        banos,
+        descripcion,
+        HombresPreferencias,
+        mascotas,
+        pareja,
+        smoking,
+        tv,
+        wifi,
+        aire,
+        lavanderia,
+        elevador,
+        estacionamiento
+      } = req.body
+
+      Room.create({
+        direccion,
+        tipo,
+        hombres,
+        mujeres,
+        renta,
+        deposito,
+        titulo,
+        cuartos,
+        banos,
+        descripcion,
+        HombresPreferencias,
+        mascotas,
+        pareja,
+        smoking,
+        tv,
+        wifi,
+        aire,
+        lavanderia,
+        elevador,
+        estacionamiento,
+        user: user._id,
+        image: [...path]
+      }).then(prueba => {
+        console.log(prueba);
+      }).catch(e => {
+        console.log(e);
+      })
   console.log(req.files);
   console.log(req.body);
 })
