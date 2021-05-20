@@ -46,4 +46,20 @@ router.get((req, res) => {
   res.redirect('/');
 })
 
+router.get('/room/:id/edit', (req, res, next) => {
+  // Iteration #4: Update the drone
+  // ... your code here
+  const user = req.session.currentUser
+  if (!user) {
+    return res.redirect("/login");
+}
+  const { id } = req.params
+  Movie.findById(id)
+    .then((ToEdit => {
+      console.log('edited', ToEdit)
+      res.render('rooms/update-form', { room: ToEdit })
+    }))
+    .catch(e => next(e))
+});
+
 module.exports = router;

@@ -49,9 +49,9 @@ h5{
   height: 100%;
   max-width: 40%;
   position: fixed;
-  top: 11%;
+  top: 12%;
   left: 60%;
-  z-index: 9999;
+  z-index: -1;
   background-color: #00a087;
 
   
