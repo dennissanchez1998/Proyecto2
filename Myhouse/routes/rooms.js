@@ -54,7 +54,7 @@ router.get((req, res) => {
 })
 
 
-//get misPublicaciones
+//get crear Publicaciones
 
 router.get('/publicaciones', (req, res) => {
   const user = req.session.currentUser
@@ -67,7 +67,7 @@ router.get('/publicaciones', (req, res) => {
   res.render('rooms/myRooms')
 })
 
-//post misPublicaciones
+//post crear Publicaciones
 
 router.post('/publicaciones', upload.array('photo', 10), (req, res) => {
       const user = req.session.currentUser
@@ -143,8 +143,12 @@ router.post('/publicaciones', upload.array('photo', 10), (req, res) => {
       }).catch(e => {
         console.log(e);
       })
-  console.log(req.files);
-  console.log(req.body);
 })
+
+//get mis publicaciones
+
+/* router.get('/misPublicaciones', (req, res) => {
+
+}) */
 
 module.exports = router;
