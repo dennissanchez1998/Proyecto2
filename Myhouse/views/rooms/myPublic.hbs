@@ -1,0 +1,65 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="backgroundPublic" style="z-index: -2;">
+    <div class="mt-5 mb-5" style="display: flex; justify-content: center; ">
+        <div class="card fondo" style="max-height: 90vh; min-height: 70vh; height: auto;width:90% ; border-radius: 20px;background-color: rgba(255, 255, 255, 0.877);">
+            <table class="table table-hover shopping-cart-wrap">
+                <thead class="text-muted">
+                    <tr>
+                        <th scope="col">Inmueble</th>
+
+                        <th scope="col" width="120">Renta</th>
+                        <th scope="col" width="200" class="text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {{#each publicaciones}}
+                    <tr>
+                        <td>
+                            <figure class="media">
+                                <div class="img-wrap"><img src="{{this.imageP}}" class="img-thumbnail img-sm"></div>
+                                <figcaption class="media-body">
+                                    <h6 class="title text-truncate">{{this.titulo}} </h6>
+
+                                    <dl class="param param-inline small">
+                                        <dt>direccion: </dt>
+                                        <dd>{{this.direccion}}</dd>
+                                    </dl>
+                                      <dl class="param param-inline small">
+                                        <dt>habitaciones: </dt>
+                                        <dd>{{this.cuartos}}</dd>
+                                    </dl>
+                                      <dl class="param param-inline small">
+                                        <dt>baños: </dt>
+                                        <dd>{{this.banos}}</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <div class="price-wrap">
+                                <var class="price">$ {{this.renta}}</var>
+                                <small class="text-muted">{{this.deposito}} (deposito) </small>
+                            </div> <!-- price-wrap .// -->
+                        </td>
+                        <td class="text-center">
+
+                            <a href="/publicacion/{{this._id}}/delete" class="btn btn-outline-danger "> × Remove</a>
+                        </td>
+                    </tr>
+
+{{/each}}
+
+
+                </tbody>
+            </table>
+        </div> <!-- card.// -->
+
+    </div>
+
+
+</div>
