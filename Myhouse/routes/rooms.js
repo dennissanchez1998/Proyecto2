@@ -8,6 +8,10 @@ const upload = multer({
   dest: './public/uploads/'
 });
 
+/* router.get((req, res) => {
+  res.redirect('/');
+})
+ */
 
 router.get('/rooms', (req, res, next) => {
   const user = req.session.currentUser
@@ -47,10 +51,9 @@ router.get("/room/:id", (req, res, next) => {
       console.log("Error while showing movie details", error);
     });
 });
-router.get((req, res) => {
-  res.redirect('/');
-})
 
+
+/* 
 router.get('/room/:id/edit', (req, res, next) => {
   // Iteration #4: Update the drone
   // ... your code here
@@ -70,7 +73,7 @@ router.get('/room/:id/edit', (req, res, next) => {
     }))
     .catch(e => next(e))
 });
-
+ */
 
 //get crear Publicaciones
 
