@@ -12,7 +12,7 @@
         <div>
           <div class="card-body">
             <h5 class="card-title black"> {{title}}</h5>
-            <p class="card-text">Propietario:{{author}}</p>
+{{!--             <p class="card-text">Propietario:{{author}}</p> --}}
           </div>
           <img src="{{testimageUrl}}" class="card-img-top" alt="...">
           <h10 class="card-title black margintitle">| {{housetype}} || {{roomsize}} m2 en cuarto || {{housesize}} m2 de casa |
@@ -20,8 +20,8 @@
           <p class="card-text">.</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>Renta:</strong> {{rent}} $/mes</li>
-          <li class="list-group-item"><strong>Mantenimiento:</strong> {{#if maintenance}}Incluido! {{else}} No Incluido! {{/if}}</li>
+          <li class="list-group-item"><strong>Renta:</strong> {{renta}} $/mes</li>
+          <li class="list-group-item"><strong>Mantenimiento:</strong> {{#if maintenimiento}}Incluido! {{else}} No Incluido! {{/if}}</li>
           <li class="list-group-item"><strong>Servicios:</strong> {{#if servicios}}Incluido! {{else}} No Incluido! {{/if}}</li>
         </ul>
       </a>
