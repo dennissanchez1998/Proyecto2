@@ -17,8 +17,11 @@
                 </thead>
                 <tbody>
                    {{#each publicaciones}}
+
                     <tr>
+                                        
                         <td>
+   <a href="/room/{{this._id}}" class="roomboxlink" style="height: 100%; width: 100%; color: black;">
                             <figure class="media">
                                 <div class="img-wrap"><img src="{{this.imageP}}" class="img-thumbnail img-sm"></div>
                                 <figcaption class="media-body">
@@ -38,7 +41,9 @@
                                     </dl>
                                 </figcaption>
                             </figure>
+                              </a>
                         </td>
+                      
 
                         <td>
                             <div class="price-wrap">
@@ -47,10 +52,12 @@
                             </div> <!-- price-wrap .// -->
                         </td>
                         <td class="text-center">
+                            
 
                             <a href="/publicacion/{{this._id}}/delete" class="btn btn-outline-danger "> × Remove</a>
                         </td>
                     </tr>
+                    </a>
 
 {{/each}}
 
