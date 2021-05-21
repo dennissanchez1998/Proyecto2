@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Room = require('../models/Room.models');
+const Room = require('../models/room.models');
 const User = require('../models/User.models');
 
 const multer = require('multer');
@@ -8,10 +8,6 @@ const upload = multer({
   dest: './public/uploads/'
 });
 
-/* router.get((req, res) => {
-  res.redirect('/');
-})
- */
 
 router.get('/rooms', (req, res, next) => {
   const user = req.session.currentUser
