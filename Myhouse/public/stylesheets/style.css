@@ -6,25 +6,45 @@ body {
   background-image: url("../images/living-room-PQ276VK.jpg");
   background-size: cover;
   min-height: 100vh;
-  padding-top: 10%; }
+  padding-top: 10%;
+  width: 100%; }
 
 .background2 {
   background-image: url("../images/concrete-living-room-PZDDG93.jpg");
   background-size: cover;
   min-height: 110vh;
-  padding-top: 80px; }
+  padding-top: 80px;
+  width: 100%; }
 
 .backgroundUser {
   background-image: url("../images/writing-A4T6SD9.jpg");
   background-size: cover;
   min-height: 120vh;
-  padding-top: 80px; }
+  padding-top: 80px;
+  width: 100%; }
 
 .backgroundRoom {
   background-image: url("../images/writing-A4T6SD9.jpg");
   background-size: cover;
   min-height: 140vh;
-  padding-top: 80px; }
+  padding-top: 80px;
+  width: 100%; }
+
+.backgroundPublic {
+  background-image: url("../images/Casa-principal-IVEC.jpeg");
+  background-size: cover;
+  height: auto;
+  min-height: 100vh;
+  max-height: 280vh;
+  padding-top: 80px;
+  width: 100%; }
+
+.backgroundlist {
+  height: auto;
+  min-height: 100vh;
+  max-height: 180vh;
+  padding-top: 90px;
+  width: 100%; }
 
 /* 
 
@@ -32,6 +52,7 @@ layout
 
 */
 .navbar-login {
+  height: 90px !important;
   width: 305px;
   padding: 10px;
   padding-bottom: 0px; }
@@ -45,8 +66,15 @@ layout
   font-size: 87px; }
 
 .top-nav {
+  height: 90px !important;
   -webkit-transition: 0.5s ease-in;
   -moz-transition: 0.5s ease-in; }
+
+@media (max-width: 800px) {
+  nav.main-navigation ul.nav-list {
+    display: none; }
+  nav.main-navigation ul.nav-list.nav-list-item .prueba {
+    display: block; } }
 
 .top-nav.light-header {
   height: 100px;
@@ -733,6 +761,66 @@ MyRooms
 /*
 
 MyRooms
+*/
+/* 
+MyPublic
+
+*/
+.param {
+  margin-bottom: 7px;
+  line-height: 1.4; }
+
+.param-inline dt {
+  display: inline-block; }
+
+.param dt {
+  margin: 0;
+  margin-right: 7px;
+  font-weight: 600; }
+
+.param-inline dd {
+  vertical-align: baseline;
+  display: inline-block; }
+
+.param dd {
+  margin: 0;
+  vertical-align: baseline; }
+
+.shopping-cart-wrap .price {
+  color: #007bff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+  display: block; }
+
+var {
+  font-style: normal; }
+
+.media img {
+  margin-right: 1rem; }
+
+.img-sm {
+  width: 90px;
+  max-height: 75px;
+  object-fit: cover; }
+
+.img-max {
+  width: 140px;
+  max-height: 75px;
+  object-fit: cover; }
+
+.fondo {
+  background-color: rgba(255, 255, 255, 0.877) !important; }
+
+.img-md {
+  width: 200px;
+  min-height: 300px;
+  max-height: 300px;
+  object-fit: cover; }
+
+/* 
+MyPublic
+
 */
 
 /*# sourceMappingURL=style.css.map */
