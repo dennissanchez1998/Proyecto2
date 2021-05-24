@@ -5,7 +5,7 @@ const Room = require('../models/room.models');
 
 const DB_NAME = 'my-house';
 
-mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
+mongoose.connect(process.env.MONGODB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Room = require('../models/Room.models');
+const Room = require('../models/room.models');
 const User = require('../models/User.models');
 
 const multer = require('multer');
@@ -47,10 +47,9 @@ router.get("/room/:id", (req, res, next) => {
       console.log("Error while showing movie details", error);
     });
 });
-router.get((req, res) => {
-  res.redirect('/');
-})
 
+
+/* 
 router.get('/room/:id/edit', (req, res, next) => {
   // Iteration #4: Update the drone
   // ... your code here
@@ -70,7 +69,7 @@ router.get('/room/:id/edit', (req, res, next) => {
     }))
     .catch(e => next(e))
 });
-
+ */
 
 //get crear Publicaciones
 
